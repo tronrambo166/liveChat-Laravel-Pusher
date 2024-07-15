@@ -5109,7 +5109,7 @@ $(document).ready(function () {
   });
 });
 window.Echo.channel('chat').listen('.message', function (e) {
-  $('#messages').append('<p ><span id="user">' + e.username + '</span >' + ': ' + e.message + '</p>');
+  $('#messages').append('<div class="col-sm-12" ><div class="row  w-75 mx-auto" > <div class="ml-auto w-50 pt-1"> <div class="w-75 mx-auto">      <p ><span class="text-success" id="user">' + e.username + '</span >' + ': ' + e.message + '</p>  </div>  </div>   </div> </div>');
   $('#message').val('');
 });
 

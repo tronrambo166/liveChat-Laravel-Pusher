@@ -24,25 +24,14 @@
 </div>
 
 
-<div class="row">
-  <div class="col-sm-3 ">
-  </div> 
-  <div class="col-sm-1"></div>
-  @foreach($message as $m)
-
-  <div class="col-sm-12"> 
-
+<div class="row" id="messages">
+@foreach($message as $m)
+<div class="col-sm-12" > 
 @if($m->user_id == Auth::id())
-<div class="row " > 
-  <div class="col-sm-6 pt-1">
-  </div>
-<div class="col-sm-6 pt-1">
-  <div class="row my-2">    
-    <div class="col-sm-6"> 
-      <div class="w-75 mx-auto" id="messages">
-        <p ><span class="text-success" id="user">user - {{$m->user_id}}</span >: {{$m->message}} </p>
-    </div>  
-  </div>
+<div class="row  w-75 mx-auto" > 
+<div class="ml-auto w-50 pt-1">
+      <div class="w-75 mx-auto">
+        <p class="bg-primary text-light px-2 rounded" ><span class="" id="user"> - Me </span >: {{$m->message}} </p>
   
   </div>
   </div>
@@ -50,20 +39,12 @@
 
   @else
   
-<div class="row" >  
-<div class="col-sm-6 pt-1">
-  <div class="row my-2"> 
-  <div class="col-6 "></div>    
-    <div class="col-6">    
-    <div class="w-75 mx-auto" id="messages">
+<div class="row w-75 mx-auto" >      
+    <div class="w-50 float-left">    
+    <div class="w-75 mx-auto" >
         <p ><span class="text-success" id="user">user - {{$m->user_id}}</span >: {{$m->message}} </p>
     </div> 
-    
-    </div>
-  </div>
-  </div>
 
-  <div class="col-sm-6 pt-1">
   </div>
 
   </div>
@@ -93,7 +74,7 @@
  </div>
 </form>
  
-  
+  <div class="py-5 my-5"></div>
 
 
           @endsection
