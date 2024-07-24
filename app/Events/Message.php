@@ -9,6 +9,7 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use Auth;
 
 class Message implements ShouldBroadcast
 {
@@ -16,11 +17,13 @@ class Message implements ShouldBroadcast
 
     public $message;
     public $username;
+    public $me;
 
-    public function __construct($message,$username)
+    public function __construct($message,$username, $me)
     {
         $this->message = $message;
         $this->username = $username;
+        $this->me = Auth::user()->name;
     }
 
     /**

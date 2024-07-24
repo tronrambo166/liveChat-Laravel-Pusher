@@ -5109,8 +5109,10 @@ $(document).ready(function () {
   });
 });
 window.Echo.channel('chat').listen('.message', function (e) {
-  $('#messages').append('<div class="col-sm-12" ><div class="row  w-75 mx-auto" > <div class="ml-auto w-50 pt-1"> <div class="w-75 mx-auto">      <p ><span class="text-success" id="user">' + e.username + '</span >' + ': ' + e.message + '</p>  </div>  </div>   </div> </div>');
+  var authcheck = $('meta[name="auth-check"]').attr('content');
+  if (authcheck == e.me) $('#messages').append('<div class="col-sm-12" ><div class="row  w-75 mx-auto" > <div class="ml-auto w-50 pt-1"> <div class="w-75 mx-auto">      <p class="bg-primary" ><span class="text-success" id="user">Me</span >' + ': ' + e.message + '</p>  </div>  </div>   </div> </div>');else $('#messages').append('<div class="col-sm-12" ><div class="row  w-75 mx-auto" > <div class="float-left w-50"> <div class="w-75 mx-auto">      <p ><span class="text-success" id="user">' + e.username + '</span >' + ': ' + e.message + '</p>  </div>  </div>   </div> </div>');
   $('#message').val('');
+  console.log(authcheck + e.me);
 });
 
 /***/ }),

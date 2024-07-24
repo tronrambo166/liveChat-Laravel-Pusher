@@ -27,7 +27,8 @@ class HomeController extends Controller
 
     public function message(Request $request)
     {
-        event(New Message($request->message, $request->username));
+        $me = 'none';
+        event(New Message($request->message, $request->username, $me));
         DB::table('message')->insert(['message' =>$request->message, 'user_id' => Auth::id()]);
         return $request->message;
     }

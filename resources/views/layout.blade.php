@@ -19,6 +19,7 @@
 <script src="https://unpkg.com/http-vue-loader"></script>
   {{-- Vue component files --}}
   
+  <meta hidden="" name="auth-check" content="{{ Auth::user()->name }}">
 </head>
 <body>
 <div class="container-fluid">
